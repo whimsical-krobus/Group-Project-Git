@@ -60,19 +60,20 @@ const createHTML = (movies: Movie[]) => {
   });
 };
 
-const movies = await getMovies(searchText);
-createHTML(movies);
+
 
 const form = document.getElementById("form");
 
 form?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  let searchMovie = "";
+  let searchText = "";
 
   const theInput = document.getElementById("searchText");
 
   if (theInput) {
-    searchMovie = (theInput as HTMLInputElement).value;
+    searchText = (theInput as HTMLInputElement).value;
   }
+  const movies = await getMovies(searchText);
+  createHTML(movies);
 });
