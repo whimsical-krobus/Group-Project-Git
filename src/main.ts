@@ -1,5 +1,6 @@
 import './style.css'
 
+<<<<<<< HEAD
 type Movie = {
   Title: string;
   Poster: string;
@@ -54,3 +55,23 @@ const createHTML = (movies: Movie[]) => {
 
 const movies = await getMovies(searchText);
 createHTML(movies);
+=======
+fetch("https://omdbapi.com/?apikey=416ed51a&s=batman")
+  .then((response) => response.json())
+  .then((data: OmdbResponse) => {
+    console.log(data);
+  })
+
+type Movie = {
+  Poster: string;
+  Title: string;
+  Year: string;
+}
+
+type OmdbResponse = {
+  Search: Movie[];
+  totalResults: string;
+
+};
+
+>>>>>>> c4f88f833801cb71c246329e6a586f6fe57a0d08
